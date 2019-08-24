@@ -8,7 +8,7 @@
                 <input type="text" name="firstName" placeholder="firstName">
                 <input type="text" name="lastName" placeholder="lastName">
                 <input type="text" name="department" placeholder="department">
-                <button type="submit" class="button-primary" onclick='mixpanel.track("feature consultant", {"action": "submit"})'>Create!</button>
+                <button type="submit" class="button-primary" onclick='mixpanel.track("feature consultants", {"action": "submit"})'>Create!</button>
             </form>
             <table style="width: 100%">
                 <thead>
