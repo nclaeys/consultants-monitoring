@@ -1,0 +1,14 @@
+# Experimenting with logstash
+
+## Testing the most basic pipeline
+
+docker run --rm -it docker.elastic.co/logstash/logstash:7.3.1
+
+./bin/logstash -e 'input { stdin { } } output { stdout {} }'
+
+Hello world
+
+## Simple filebeat pipeline config
+
+docker run --rm -it -v ./pipeline/:/usr/share/logstash/pipeline/ docker.elastic.co/logstash/logstash:7.3.1
+
