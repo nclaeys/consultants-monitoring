@@ -41,14 +41,14 @@
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<#if _nbOfConsultants?has_content>
+<#if _nbOfCheckins?has_content>
     <div>
-        Query Count: ${nbOfConsultants}
+        Query Count: ${nbOfCheckins}
     </div>
 </#if>
 </body>
 </html>
 <script>
-    mixpanel.track("feature consultants", {"action": "query", "nbOfConsultants": "${nbOfConsultants}"});
+    mixpanel.track("feature checkin", {"action": "query", "nbOfCheckins": "${nbOfCheckins}"});
 </script>
 </#macro>

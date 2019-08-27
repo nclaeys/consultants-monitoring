@@ -1,15 +1,15 @@
 # LOGGING
 POST to change the log level for package at runtime:
-`http://localhost:8080/actuator/loggers/be.axxes.consultants`
+`http://localhost:8080/actuator/loggers/be.axxes.pmt`
 
-`curl -v -X POST http://localhost:8080/actuator/loggers/be.axxes.consultants -H "Content-Type: application/json" -d '{"configuredLevel":"DEBUG"}'`
+`curl -v -X POST http://localhost:8080/actuator/loggers/be.axxes.pmt -H "Content-Type: application/json" -d '{"configuredLevel":"DEBUG"}'`
 
 `curl -v -X GET http://localhost:8080/actuator/loggers`
 
 Change data service:
-`curl -v -X GET http://localhost:8080/consultants`
+`curl -v -X GET http://localhost:8080/checkin`
 
-`curl -v -X POST http://localhost:8080/consultants -H "Content-Type: application/json" -d '{ "firstName":"d", "lastName":"claeys", "department":"JAVA"}'`
+`curl -v -X POST http://localhost:8080/checkin -H "Content-Type: application/json" -d '{ "user":"someone@axxes.com", "content":"All is well", "year":2018, "quarter":1}'`
 
 # Application metrics
 

@@ -1,4 +1,4 @@
-package be.axxes.consultants;
+package be.axxes.pmt.configuration;
 
 import org.springframework.data.rest.core.RepositoryConstraintViolationException;
 import org.springframework.http.HttpHeaders;
@@ -14,16 +14,17 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends
         ResponseEntityExceptionHandler {
-    @ExceptionHandler({RepositoryConstraintViolationException.class})
+
+    @ExceptionHandler({ RepositoryConstraintViolationException.class })
     public ResponseEntity<Object> handleAccessDeniedException(
             Exception ex, WebRequest request) {
         RepositoryConstraintViolationException nevEx =
                 (RepositoryConstraintViolationException) ex;
 
         String errors = nevEx.getErrors().getAllErrors().stream()
-                             .map(p -> p.toString()).collect(Collectors.joining("\n"));
+                .map(p -> p.toString()).collect(Collectors.joining("\n"));
 
         return new ResponseEntity<Object>(errors, new HttpHeaders(),
-                HttpStatus.PARTIAL_CONTENT);
+                HttpStatus.BAD_REQUEST);
     }
 }
