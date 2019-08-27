@@ -9,23 +9,11 @@ curl -X PUT "localhost:9200/customer/_doc/1?pretty" -H 'Content-Type: applicatio
 
 ## Find by Id:
 
-curl -X GET "localhost:9200/customer/_doc/1"
 
 ## Find all
 
-curl -X GET "localhost:9200/customer/_search?pretty" -H 'Content-Type: application/json' -d'
-{
-  "query": { "match_all": {} }
-}
-'
 
 ## Find by name
-
-curl -X GET "localhost:9200/customer/_search?pretty" -H 'Content-Type: application/json' -d'
-{
-  "query": { "match": {"name": "Niels Claeys"} }
-}
-'
 
 # Insert all account data
 
@@ -34,23 +22,9 @@ curl "localhost:9200/_cat/indices?v"
 
 ## Query documents sorted by account number
 
-curl -X GET "localhost:9200/bank/_search?pretty" -H 'Content-Type: application/json' -d'
-{
-  "query": { "match_all": {} },
-  "sort": [
-    { "account_number":"asc"}
-  ]
-}
-'
 
 ## Query all documents with mill address and only displaying balance amount
 
-curl -X GET "localhost:9200/bank/_search?pretty" -H 'Content-Type: application/json' -d'
-{
-  "query": { "match": {"address": "mill"} },
-  "_source": ["balance", "address"]
-}
-'
 
 
 
